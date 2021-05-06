@@ -36,3 +36,4 @@ result = client['test']['scriptsjson'].aggregate([
         }
     }
 ])
+

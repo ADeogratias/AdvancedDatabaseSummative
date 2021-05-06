@@ -82,99 +82,88 @@ INSERT INTO aludb.department VALUES (8, 'Science and Fiction');
 INSERT INTO aludb.department VALUES (9, 'Animation');
 INSERT INTO aludb.department VALUES (10, 'Art');
 
-course
-  `course_id` Integer PRIMARY KEY,
-  `course_name` String,
-  `staff_id` Integer,
-  `department_id` Integer,
-  `requirements` String
-  
-staff
-student
-student_has_course
-schedule
-classroom
-cohort
-
-
-
--- Inserting entries into Courses table
-INSERT INTO alu_db.Courses VALUES (1, 'Advanced Databases', 4, 2, 1, 1);
-INSERT INTO alu_db.Courses VALUES (2, 'Databases Systems', 2, 1, 1, 9);
-INSERT INTO alu_db.Courses VALUES (3, 'Programming I - Python', 2, 1, 1, 8);
-INSERT INTO alu_db.Courses VALUES (4, 'Programming II - Java', 2, 2, 1, 8);
-INSERT INTO alu_db.Courses VALUES (5, 'Macro Economics', 3, 2, 3, 10);
-INSERT INTO alu_db.Courses VALUES (6, 'Micro Economics', 3, 1, 3, 10);
-INSERT INTO alu_db.Courses VALUES (7, 'Design Thinking', 2, 1, 6, 10);
-INSERT INTO alu_db.Courses VALUES (8, 'Mobile Development', 3, 1, 1, 5);
-INSERT INTO alu_db.Courses VALUES (9, 'Machine Learning', 4, 1, 1, 2);
-INSERT INTO alu_db.Courses VALUES (10, 'Data Mining', 4, 2, 1, 2);
-
+-- Inserting entries into Course table
+INSERT INTO aludb.course VALUES (1, 'Data Mining', 1, 1, 'Computer');
+INSERT INTO aludb.course VALUES (2, 'Programming I - Java', 2, 1, 'Computer');
+INSERT INTO aludb.course VALUES (3, 'Programming II - Python', 3, 1, 'Computer');
+INSERT INTO aludb.course VALUES (4, 'Programming III - C', 4, 1, 'Computer');
+INSERT INTO aludb.course VALUES (5, 'Databases Systems', 5, 1, 'Computer');
+INSERT INTO aludb.course VALUES (6, 'Forestry', 6, 3,'Computer');
+INSERT INTO aludb.course VALUES (7, 'System Design', 7, 1, 'Computer');
+INSERT INTO aludb.course VALUES (8, 'Tech and Society', 9, 1, 'Computer');
+INSERT INTO aludb.course VALUES (9, 'Growth', 8, 1, 'Computer');
+INSERT INTO aludb.course VALUES (10, 'Life Hacks CS', 10, 2, 'Computer');
 
 -- Inserting entries into Staff table
-INSERT INTO alu_db.Staff VALUES (1, 'Robert', 'Last Name', 'Facilitator', 1);
-INSERT INTO alu_db.Staff VALUES (2, 'Tatenda', 'Last Name', 'Facilitator', 2);
-INSERT INTO alu_db.Staff VALUES (3, 'Thadee', 'Last Name', 'Facilitator', 3);
-INSERT INTO alu_db.Staff VALUES (4, 'Donart', 'Last Name', 'Facilitator', 4);
-INSERT INTO alu_db.Staff VALUES (5, 'Lucy', 'Last Name', 'Facilitator', 5);
-INSERT INTO alu_db.Staff VALUES (6, 'Clovis', 'Last Name', 'Facilitator', 6);
-INSERT INTO alu_db.Staff VALUES (7, 'Obed', 'Last Name', 'Facilitator', 7);
-INSERT INTO alu_db.Staff VALUES (8, 'Mehdi', 'Last Name', 'Facilitator', 8);
-INSERT INTO alu_db.Staff VALUES (9, 'Emelyne', 'Last Name', 'Facilitator', 9);
-INSERT INTO alu_db.Staff VALUES (10, 'Ela', 'Last Name', 'Facilitator', 10);
-
--- Inserting entries into Facilitators table
-INSERT INTO alu_db.Facilitators VALUES (1, 'Robert', 'Last Name', 'remail@alueducation.com', 'Male', '1990-01-01', 1, 1, 1);
-INSERT INTO alu_db.Facilitators VALUES (2, 'Tatenda', 'Last Name', 'temail@alueducation.com', 'Male', '1990-02-01', 2, 1, 2);
-INSERT INTO alu_db.Facilitators VALUES (3, 'Thadee', 'Last Name', 'themail@alueducation.com', 'Male', '1990-03-01', 3, 1, 3);
-INSERT INTO alu_db.Facilitators VALUES (4, 'Donart', 'Last Name', 'demail@alueducation.com', 'Male', '1990-04-01', 4, 1, 4);
-INSERT INTO alu_db.Facilitators VALUES (5, 'Lucy', 'Last Name', 'lemail@alueducation.com', 'Male', '1990-05-01', 5, 1, 5);
-INSERT INTO alu_db.Facilitators VALUES (6, 'Clovis', 'Last Name', 'cemail@alueducation.com', 'Male', '1990-01-01', 6, 1, 6);
-INSERT INTO alu_db.Facilitators VALUES (7, 'Obed', 'Last Name', 'oemail@alueducation.com', 'Male', '1990-07-01', 7, 1, 7);
-INSERT INTO alu_db.Facilitators VALUES (8, 'Mehdi', 'Last Name', 'memail@alueducation.com', 'Male', '1990-08-01', 8, 1, 8);
-INSERT INTO alu_db.Facilitators VALUES (9, 'Emelyne', 'Last Name', 'eemail@alueducation.com', 'Male', '1990-09-01', 9, 1, 9);
-INSERT INTO alu_db.Facilitators VALUES (10, 'Ela', 'Last Name', 'elemail@alueducation.com', 'Male', '1990-01-01', 10, 1, 10);
-
--- Inserting entries into Clubs table
-INSERT INTO alu_db.Clubs VALUES (1, 'Robotics Club', 10, 1, 1);
-INSERT INTO alu_db.Clubs VALUES (2, 'IoT', 11, 2, 1);
-INSERT INTO alu_db.Clubs VALUES (3, 'Data Science Club', 12, 3, 1);
-INSERT INTO alu_db.Clubs VALUES (4, 'Entreprenuership Club', 13, 4, 2);
-INSERT INTO alu_db.Clubs VALUES (5, 'Consulting Club', 14, 5, 2);
-INSERT INTO alu_db.Clubs VALUES (6, 'AI Lab', 15, 6, 1);
-INSERT INTO alu_db.Clubs VALUES (7, 'Problem-Solving Lab', 16, 7, 3);
-INSERT INTO alu_db.Clubs VALUES (8, 'Club-123', 17, 8, 4);
-INSERT INTO alu_db.Clubs VALUES (9, 'Club-124', 18, 9, 4);
-INSERT INTO alu_db.Clubs VALUES (10, 'Club-125', 19, 10, 4);
-
--- Inserting entries into Degree Programs table
-INSERT INTO alu_db.DegreePrograms VALUES (1, 'Computer Science', 4, 1);
-INSERT INTO alu_db.DegreePrograms VALUES (2, 'Global Challenges', 4, 2);
-INSERT INTO alu_db.DegreePrograms VALUES (3, 'International Business & Trade', 6, 1);
-INSERT INTO alu_db.DegreePrograms VALUES (4, 'Entreprenuership', 6, 1);
-INSERT INTO alu_db.DegreePrograms VALUES (5, 'Physics', 1, 1);
-INSERT INTO alu_db.DegreePrograms VALUES (6, 'Chemistry', 1, 1);
-INSERT INTO alu_db.DegreePrograms VALUES (7, 'Mathematics', 1, 1);
-INSERT INTO alu_db.DegreePrograms VALUES (8, 'Mechanical Engineering', 1, 1);
-INSERT INTO alu_db.DegreePrograms VALUES (9, 'Political Science', 3, 1);
-INSERT INTO alu_db.DegreePrograms VALUES (10, 'Engineering Science', 1, 1);
-
+INSERT INTO aldb.staff VALUES (1, 'Sir Robert', 'robert@alustaff.com');
+INSERT INTO aldb.staff VALUES (2, 'Sir Thadee', 'thadee@alustaff.com');
+INSERT INTO aldb.staff VALUES (3, 'Sir Tatenda', 'tatenda@alustaff.com');
+INSERT INTO aldb.staff VALUES (4, 'Sir Donart', 'donart@alustaff.com');
+INSERT INTO aldb.staff VALUES (5, 'Sir Clovis', 'clovis@alustaff.com');
+INSERT INTO aldb.staff VALUES (6, 'Sir Kuda', 'kuda@alustaff.com');
+INSERT INTO aldb.staff VALUES (7, 'Sir Kumar', 'kumar@alustaff.com');
+INSERT INTO aldb.staff VALUES (8, 'Sir Obed', 'obed@alustaff.com');
+INSERT INTO aldb.staff VALUES (9, 'Sir Biased', 'biased@alustaff.com');
+INSERT INTO aldb.staff VALUES (10, 'Sir Notgood', 'notgood@alustaff.com');
 
 -- Inserting entries into Students table
-INSERT INTO alu_db.Students VALUES (1, 'Mwiza', 'Last Name', 'mstudent@email.com', 'Male', '1999-01-01', 1, 1);
-INSERT INTO alu_db.Students VALUES (2, 'Jorja', 'Last Name', 'jjstudent@email.com', 'Female', '1999-02-01', 1, 1);
-INSERT INTO alu_db.Students VALUES (3, 'John', 'Last Name', 'jstudent@email.com', 'Male', '1999-03-01', 1, 1);
-INSERT INTO alu_db.Students VALUES (4, 'Kevin', 'Last Name', 'kstudent@email.com', 'Male', '1999-04-01', 2, 1);
-INSERT INTO alu_db.Students VALUES (5, 'Patrick', 'Last Name', 'j2student@email.com', 'Male', '1999-05-01', 2, 1);
-INSERT INTO alu_db.Students VALUES (6, 'Sam', 'Last Name', 'sstudent@email.com', 'Male', '1999-06-01', 2, 2);
-INSERT INTO alu_db.Students VALUES (7, 'Jane', 'Last Name', 'jastudent@email.com', 'Female', '1999-07-01', 3, 2);
-INSERT INTO alu_db.Students VALUES (8, 'Philip', 'Last Name', 'pstudent@email.com', 'Male', '1999-08-01', 3, 3);
-INSERT INTO alu_db.Students VALUES (9, 'Mary', 'Last Name', 'mystudent@email.com', 'Female', '1999-09-01', 3, 3);
-INSERT INTO alu_db.Students VALUES (10, 'Judith', 'Last Name', 'jdstudent@email.com', 'Female', '1999-10-01', 4, 3);
+INSERT INTO aludb.student VALUES (1, 1, 'Deo', 'deo@alustudent.com');
+INSERT INTO aludb.student VALUES (2, 1, 'lor', 'lor@alustudent.com');
+INSERT INTO aludb.student VALUES (3, 1, 'John', 'john@alustudent.com');
+INSERT INTO aludb.student VALUES (4, 1, 'Kevin', 'kevin@alustudent.com');
+INSERT INTO aludb.student VALUES (5, 1, 'lora', 'lora@alustudent.com');
+INSERT INTO aludb.student VALUES (6, 1, 'Sam', 'sam@alustudent.com');
+INSERT INTO aludb.student VALUES (7, 2, 'steve', 'steve@alustudent.com');
+INSERT INTO aludb.student VALUES (8, 2, 'Pit', 'pit@alustudent.com');
+INSERT INTO aludb.student VALUES (9, 2, 'Mary', 'mystudent@alustudent.com');
+INSERT INTO aludb.student VALUES (10, 2, 'You', 'you@alustudent.com');
 
+-- Inserting entries into classroom table
+INSERT INTO aludb.classroom VALUES (1, 'Kigali', 20);
+INSERT INTO aludb.classroom VALUES (2, 'Kinshasa', 25);
+INSERT INTO aludb.classroom VALUES (3, 'Nairobi', 26);
+INSERT INTO aludb.classroom VALUES (4, 'Bujumbura', 19);
+INSERT INTO aludb.classroom VALUES (5, 'Kampala', 14);
+INSERT INTO aludb.classroom VALUES (6, 'Lusaka', 15);
+INSERT INTO aludb.classroom VALUES (7, 'Port Louis', 10);
+INSERT INTO aludb.classroom VALUES (8, 'Johburg', 50);
+INSERT INTO aludb.classroom VALUES (9, 'Wakanda', 40);
+INSERT INTO aludb.classroom VALUES (10, 'Africa', 19);
 
+-- Inserting entries into Cohort table
+INSERT INTO aludb.cohort VALUES (1, 4, 1);
+INSERT INTO aludb.cohort VALUES (2, 4, 2);
+INSERT INTO aludb.cohort VALUES (3, 4 1);
+INSERT INTO aludb.cohort VALUES (4, 4, 1);
+INSERT INTO aludb.cohort VALUES (5, 4, 1);
+INSERT INTO aludb.cohort VALUES (6, 4, 1);
+INSERT INTO aludb.cohort VALUES (7, 4, 1);
+INSERT INTO aludb.cohort VALUES (8, 4, 1);
+INSERT INTO aludb.cohort VALUES (9, 4, 1);
+INSERT INTO aludb.cohort VALUES (10, 4, 1);
 
+-- Inserting entries into student_hascourse table
+INSERT INTO aludb.student_has_course VALUES (1, 1);
+INSERT INTO aludb.student_has_course VALUES (2, 2);
+INSERT INTO aludb.student_has_course VALUES (3, 1);
+INSERT INTO aludb.student_has_course VALUES (4, 1);
+INSERT INTO aludb.student_has_course VALUES (5, 1);
+INSERT INTO aludb.student_has_course VALUES (6, 2);
+INSERT INTO aludb.student_has_course VALUES (7, 2);
+INSERT INTO aludb.student_has_course VALUES (8, 2);
+INSERT INTO aludb.student_has_course VALUES (9, 1);
+INSERT INTO aludb.student_has_course VALUES (10, 1);
 
-
+-- Inserting entries into schedule table
+INSERT INTO aludb.schedule VALUES (1, 1, 1, 8:00, 9:00, '2021-20-04');
+INSERT INTO aludb.schedule VALUES (2, 2, 2, 10:00, 11:00, '2021-20-04');
+INSERT INTO aludb.schedule VALUES (3, 3, 3, 12:00, 13:00, '2021-20-04');
+INSERT INTO aludb.schedule VALUES (4, 4, 4, 14:00, 15:00, '2021-20-04');
+INSERT INTO aludb.schedule VALUES (5, 5, 5, 16:00, 17:00, '2021-20-04');
+INSERT INTO aludb.schedule VALUES (6, 6, 6, 18:00, 19:00, '2021-20-04');
+INSERT INTO aludb.schedule VALUES (7, 7, 7, 20:00, 21:00, '2021-20-04');
+INSERT INTO aludb.schedule VALUES (8, 8, 8, 8:00, 9:00, '2021-21-04');
+INSERT INTO aludb.schedule VALUES (9, 9, 9, 10:00, 11:00, '2021-21-04');
+INSERT INTO aludb.schedule VALUES (10, 10, 10, 12:00, 13:00, '2021-21-04');
 
 

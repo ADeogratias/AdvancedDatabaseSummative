@@ -1,0 +1,38 @@
+# Requires the PyMongo package.
+# https://api.mongodb.com/python/current
+
+client = MongoClient('mongodb+srv://deo:test123@cluster0.ju42g.mongodb.net/test?authSource=admin&replicaSet=atlas-2pa78k-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true')
+result = client['test']['scriptsjson'].aggregate([
+    {
+        '$addFields': {
+            'converteditems': {
+                '$toInt': '$items'
+            }, 
+            'convertednic': {
+                '$toDouble': '$nic'
+            }, 
+            'convertedact_cost': {
+                '$toDouble': '$act_cost'
+            }, 
+            'convertedquantity': {
+                '$toDouble': '$quantity'
+            }
+        }
+    }, {
+        '$group': {
+            '_id': 'mean', 
+            'total_items': {
+                '$avg': '$converteditems'
+            }, 
+            'total_quantity': {
+                '$avg': '$convertedquantity'
+            }, 
+            'total_nic': {
+                '$avg': '$convertednic'
+            }, 
+            'total_act_cost': {
+                '$avg': '$convertedact_cost'
+            }
+        }
+    }
+])

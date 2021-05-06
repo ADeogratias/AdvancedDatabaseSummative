@@ -1,0 +1,176 @@
+# Requires the PyMongo package.
+# https://api.mongodb.com/python/current
+
+client = MongoClient('mongodb+srv://deo:test123@cluster0.ju42g.mongodb.net/test?authSource=admin&replicaSet=atlas-2pa78k-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true')
+result = client['test']['scriptsjson'].aggregate([
+    {
+        '$addFields': {
+            'converteditems': {
+                '$toInt': '$items'
+            }, 
+            'convertednic': {
+                '$toDouble': '$nic'
+            }, 
+            'convertedact_cost': {
+                '$toDouble': '$act_cost'
+            }, 
+            'convertedquantity': {
+                '$toDouble': '$quantity'
+            }
+        }
+    }, {
+        '$group': {
+            '_id': 'Quartile', 
+            'counts': {
+                '$sum': 1
+            }, 
+            'converteditems': {
+                '$push': '$converteditems'
+            }, 
+            'convertednic': {
+                '$push': '$convertednic'
+            }, 
+            'convertedact_cost': {
+                '$push': '$convertedact_cost'
+            }, 
+            'convertedquantity': {
+                '$push': '$convertedquantity'
+            }
+        }
+    }, {
+        '$addFields': {
+            'firstqitems': {
+                '$arrayElemAt': [
+                    '$converteditems', {
+                        '$floor': {
+                            '$multiply': [
+                                0.25, '$counts'
+                            ]
+                        }
+                    }
+                ]
+            }, 
+            'medianitems': {
+                '$arrayElemAt': [
+                    '$converteditems', {
+                        '$floor': {
+                            '$multiply': [
+                                0.5, '$counts'
+                            ]
+                        }
+                    }
+                ]
+            }, 
+            'thirdqitems': {
+                '$arrayElemAt': [
+                    '$converteditems', {
+                        '$floor': {
+                            '$multiply': [
+                                0.75, '$counts'
+                            ]
+                        }
+                    }
+                ]
+            }, 
+            'firstqnic': {
+                '$arrayElemAt': [
+                    '$convertednic', {
+                        '$floor': {
+                            '$multiply': [
+                                0.25, '$counts'
+                            ]
+                        }
+                    }
+                ]
+            }, 
+            'mediannic': {
+                '$arrayElemAt': [
+                    '$convertednic', {
+                        '$floor': {
+                            '$multiply': [
+                                0.5, '$counts'
+                            ]
+                        }
+                    }
+                ]
+            }, 
+            'thirdqnic': {
+                '$arrayElemAt': [
+                    '$convertednic', {
+                        '$floor': {
+                            '$multiply': [
+                                0.75, '$counts'
+                            ]
+                        }
+                    }
+                ]
+            }, 
+            'firstqact_cost': {
+                '$arrayElemAt': [
+                    '$convertedact_cost', {
+                        '$floor': {
+                            '$multiply': [
+                                0.25, '$counts'
+                            ]
+                        }
+                    }
+                ]
+            }, 
+            'medianact_cost': {
+                '$arrayElemAt': [
+                    '$convertedact_cost', {
+                        '$floor': {
+                            '$multiply': [
+                                0.5, '$counts'
+                            ]
+                        }
+                    }
+                ]
+            }, 
+            'thirdqact_cost': {
+                '$arrayElemAt': [
+                    '$convertedact_cost', {
+                        '$floor': {
+                            '$multiply': [
+                                0.75, '$counts'
+                            ]
+                        }
+                    }
+                ]
+            }, 
+            'firstqquantity': {
+                '$arrayElemAt': [
+                    '$convertedquantity', {
+                        '$floor': {
+                            '$multiply': [
+                                0.25, '$counts'
+                            ]
+                        }
+                    }
+                ]
+            }, 
+            'medianquantity': {
+                '$arrayElemAt': [
+                    '$convertedquantity', {
+                        '$floor': {
+                            '$multiply': [
+                                0.5, '$counts'
+                            ]
+                        }
+                    }
+                ]
+            }, 
+            'thirdqquantity': {
+                '$arrayElemAt': [
+                    '$convertedquantity', {
+                        '$floor': {
+                            '$multiply': [
+                                0.75, '$counts'
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+])
